@@ -1,6 +1,6 @@
 import React from "react";
 
-function QuestionItem({ question, onHandleDelete, handleAnswer }) {
+function QuestionItem({ question, onHandleDelete, onHandleAnswer }) {
   const { id, prompt, answers, correctIndex } = question;
 
   const options = answers.map((answer, index) => (
@@ -13,8 +13,8 @@ function QuestionItem({ question, onHandleDelete, handleAnswer }) {
     onHandleDelete(id)
   }
 
-  function handleAnswerChange(){
-    handleAnswer()
+  function handleAnswerChange(e){
+    onHandleAnswer(id, parseInt(e.target.value))
   }
 
   return (
